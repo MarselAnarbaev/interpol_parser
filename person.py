@@ -64,7 +64,6 @@ class Person:
     def process_link(self, link, img_dir):
         self.personal_info.clear()
         time.sleep(1)
-        print(link)
         # hard check, sometime interpol doesn't want to load page and gets back to main page
         # so we make it into while loop, unless it loads page and inserts specified key from links list
         while 'Family name' not in self.personal_info.keys():
@@ -73,7 +72,6 @@ class Person:
             self.get_extra_table_data(soup, "wantedsingle__infosWrapper physicalDescriptionContent")
             self.get_extra_table_data(soup, "wantedsingle__infosWrapper detailsContent")
             self.page.get_page_images()
-        print(self.page.get_image_links())
         try:
             del self.personal_info[""]
         except KeyError:
